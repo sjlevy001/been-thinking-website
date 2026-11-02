@@ -1357,7 +1357,7 @@ search.addEventListener('input', function() {
 
       answered++;
 
-      const [first, second] = q[3][choice].split(",");
+      const [first, second] = q[3][choice].split(",").map(name => name.trim());
 
       scores[first] += 2;
 
