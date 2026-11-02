@@ -7,7 +7,234 @@
 <meta name="theme-color" content="#171715">
 <title>BEEN THINKING — Ideas Worth Sitting With</title>
 <meta name="description" content="Video essays, stories, characters and ideas. Welcome to Been Thinking.">
-<style>
+/* PERSONALITY TEST */
+
+.test-section {
+  background: #1d1c19;
+}
+
+.test-intro {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.test-intro h2 {
+  font-size: clamp(38px, 6vw, 64px);
+  line-height: 1.1;
+  margin: 12px 0 18px;
+}
+
+.test-intro p {
+  color: #c1b9ad;
+  max-width: 650px;
+}
+
+.test-meta {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 22px;
+}
+
+.test-shell,
+.test-start,
+.test-result {
+  max-width: 820px;
+  margin: 0 auto;
+  border: 1px solid #494238;
+  background: #191917;
+  padding: clamp(22px, 5vw, 48px);
+}
+
+.test-kicker,
+.result-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.test-start h3,
+.test-result h3 {
+  font: normal 32px/1.2 Georgia, serif;
+  margin: 12px 0;
+}
+
+.test-start p,
+.test-result p {
+  color: #c1b9ad;
+}
+
+.test-progress-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 25px 0 10px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.progress {
+  height: 3px;
+  background: #403b34;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--gold);
+  transition: width .25s;
+}
+
+#questionTitle {
+  font: normal clamp(25px, 4vw, 36px)/1.25 Georgia, serif;
+  margin: 28px 0 12px;
+}
+
+#questionHint {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.answer-list {
+  display: grid;
+  gap: 10px;
+}
+
+.answer {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid #514a40;
+  padding: 16px 18px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  cursor: pointer;
+  font: 14px/1.55 Arial, sans-serif;
+  transition: .2s;
+}
+
+.answer:hover,
+.answer.selected {
+  border-color: var(--gold);
+  background: #302b24;
+}
+
+.answer-letter {
+  flex: 0 0 25px;
+  height: 25px;
+  border: 1px solid #8c7d68;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #d8c8ad;
+  font-size: 11px;
+}
+
+.test-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.text-button {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.text-button:disabled {
+  opacity: .25;
+  cursor: default;
+}
+
+.test-note,
+.disclaimer {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.result-name {
+  font: normal clamp(40px, 7vw, 66px)/1.08 Georgia, serif;
+  margin: 10px 0;
+}
+
+.result-secondary {
+  font: normal 24px Georgia, serif;
+  color: #d3c3a8;
+}
+
+.result-copy {
+  max-width: 680px;
+}
+
+.dimension-list {
+  display: grid;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.dimension-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 14px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.dimension-track {
+  height: 5px;
+  background: #403b34;
+}
+
+.dimension-track span {
+  height: 100%;
+  display: block;
+  background: var(--gold);
+}
+
+.result-divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 28px 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media(max-width:650px) {
+  .test-shell,
+  .test-start,
+  .test-result {
+    padding: 22px 17px;
+  }
+
+  .answer {
+    padding: 14px;
+  }
+
+  .dimension-row {
+    grid-template-columns: 88px 1fr;
+  }
+}
+  <style>
 :root {
   --bg:#171715;
   --panel:#22211e;
@@ -133,13 +360,13 @@ footer strong {font-family:Georgia,serif;letter-spacing:2px;color:var(--cream)}
 
 <header>
   <a class="logo" href="#">BEEN THINKING</a>
-  <nav>
-    <a href="#watch">WATCH</a>
-    <a href="#read">READ</a>
-    <a href="#vanity">VANITY CARDS</a>
-    <a href="#explore">EXPLORE</a>
-    <a href="#about">ABOUT</a>
-  </nav>
+<nav>
+  <a href="#watch">WATCH</a>
+  <a href="#read">READ</a>
+  <a href="#test">TEST</a>
+  <a href="#vanity">VANITY CARDS</a>
+  <a href="#about">ABOUT</a>
+</nav>
   <a class="subscribe" href="https://www.youtube.com/@beenthinking01?sub_confirmation=1" target="_blank">SUBSCRIBE ↗</a>
 </header>
 
@@ -241,6 +468,120 @@ footer strong {font-family:Georgia,serif;letter-spacing:2px;color:var(--cream)}
   </div>
 </section>
 
+
+
+<section id="test" class="test-section">
+
+  <div class="test-intro">
+
+    <p class="eyebrow">BEEN THINKING PRESENTS</p>
+
+    <h2>WHO ARE YOU,<br>REALLY?</h2>
+
+    <p class="test-subtitle">
+
+      A psychological exploration through the characters of
+
+      The Big Bang Theory.
+
+    </p>
+
+    <p class="test-meta">
+
+      36 QUESTIONS &nbsp;·&nbsp; 6 DIMENSIONS &nbsp;·&nbsp; 8 CHARACTERS
+
+    </p>
+
+    <p class="test-description">
+
+      We are rarely just one thing. The way we think, what we fear,
+
+      where we come from, and how we let people close all reveal
+
+      something different about us.
+
+    </p>
+
+    <p class="test-description">
+
+      This is an invitation to look a little closer. There are no
+
+      right answers. Take your time, answer honestly, and skip
+
+      anything you would rather not explore.
+
+    </p>
+
+    <p class="test-note">
+
+      An original character-comparison experience, not a clinical
+
+      assessment or psychological diagnosis.
+
+    </p>
+
+    <button class="test-button" id="beginTest">BEGIN THE TEST</button>
+
+  </div>
+
+  <div class="test-shell" id="testShell" hidden>
+
+    <div class="test-progress">
+
+      <div class="test-progress-top">
+
+        <span id="dimensionName">OUTLOOK</span>
+
+        <span id="questionCount">QUESTION 1 OF 36</span>
+
+      </div>
+
+      <div class="test-progress-track">
+
+        <div class="test-progress-fill" id="progressBar"></div>
+
+      </div>
+
+    </div>
+
+    <div class="test-question-area">
+
+      <p class="eyebrow">TAKE A MOMENT</p>
+
+      <h3 id="questionTitle"></h3>
+
+      <p class="test-question-hint" id="questionHint">
+
+        Choose the answer that feels closest to you.
+
+      </p>
+
+      <div class="test-answers" id="answerList"></div>
+
+    </div>
+
+    <div class="test-controls">
+
+      <button class="test-secondary" id="backButton">BACK</button>
+
+      <button class="test-secondary" id="skipButton">SKIP</button>
+
+      <button class="test-button" id="nextButton" disabled>NEXT</button>
+
+    </div>
+
+  </div>
+
+  <div class="test-result" id="testResult" hidden>
+
+    <div id="resultContent"></div>
+
+    <button class="test-button" id="retakeTest">TAKE THE TEST AGAIN</button>
+
+  </div>
+
+</section>
+
 <section class="about" id="about">
   <div class="eyebrow">A LITTLE ABOUT THIS PLACE</div>
   <h2>Welcome to Been Thinking.</h2>
@@ -266,6 +607,863 @@ search.addEventListener('input', function() {
     video.style.display = text.includes(term) ? '' : 'none';
   });
 });
+</script>
+
+
+<script>
+
+(() => {
+
+  const characters = {
+
+    Sheldon: {
+
+      name: "The Intellectual Protector",
+
+      description: "You often approach life by trying to understand it. Knowledge, logic and structure give you a sense of security when people or circumstances feel unpredictable. You value precision and can find comfort in knowing where you stand.",
+
+      strengths: "Curiosity, independent thinking, conviction and an extraordinary capacity for concentration.",
+
+      tensions: "You may intellectualise feelings that need to be experienced, or mistake predictability for safety. Being understood matters to you, even when letting someone close feels difficult."
+
+    },
+
+    Leonard: {
+
+      name: "The Seeking Romantic",
+
+      description: "You are deeply interested in connection, belonging and being accepted. You tend to notice emotional undercurrents and can be remarkably patient with people. Yet the wish to be loved can sometimes compete with the need to stand up for yourself.",
+
+      strengths: "Empathy, loyalty, emotional awareness and a genuine desire to understand others.",
+
+      tensions: "You may look outside yourself for reassurance, or give more than you receive. You want to be chosen, but can sometimes wonder whether you are enough."
+
+    },
+
+    Penny: {
+
+      name: "The Adaptive Realist",
+
+      description: "You have a practical instinct for navigating people and situations. You are adaptable, socially perceptive and capable of finding your feet when life changes direction. You tend to learn through experience rather than needing everything explained first.",
+
+      strengths: "Resilience, emotional intuition, independence and an ability to connect with different kinds of people.",
+
+      tensions: "You may use independence to avoid depending on others, or underestimate your own potential. Being capable does not mean you never need support."
+
+    },
+
+    Howard: {
+
+      name: "The Recognition Seeker",
+
+      description: "You want to matter, to be noticed and to feel that your contribution is valued. Humour, performance and confidence can help you navigate insecurity. Beneath the outward presentation is often a sincere desire for affection and recognition.",
+
+      strengths: "Creativity, humour, resourcefulness, ambition and an ability to bring energy into a room.",
+
+      tensions: "You may perform confidence when you feel uncertain, or measure your worth through other people's reactions. Recognition feels good, but it cannot replace feeling accepted."
+
+    },
+
+    Raj: {
+
+      name: "The Romantic Idealist",
+
+      description: "You experience connection with considerable feeling and imagination. You may think deeply about relationships and hope for something meaningful rather than merely convenient. Your sensitivity can help you notice things others overlook.",
+
+      strengths: "Sensitivity, imagination, tenderness, loyalty and an appreciation for emotional depth.",
+
+      tensions: "You may imagine what a relationship could become before discovering what it actually is. The fear of rejection can sometimes make uncertainty feel larger than it needs to be."
+
+    },
+
+    Amy: {
+
+      name: "The Late Bloomer",
+
+      description: "You have a strong inner world and a distinct sense of identity. You value intelligence and independence, but connection matters more than you might initially reveal. You may have spent time learning how to express needs that once felt unfamiliar or difficult to name.",
+
+      strengths: "Intellectual independence, perseverance, curiosity, honesty and the capacity to grow.",
+
+      tensions: "You may protect yourself through self-sufficiency, even when you want closeness. Wanting to be accepted does not make you less independent."
+
+    },
+
+    Bernadette: {
+
+      name: "The Determined Achiever",
+
+      description: "You are driven, capable and accustomed to finding a way forward. Competence can be both a source of pride and a form of protection. You value being taken seriously and are often more determined than people initially realise.",
+
+      strengths: "Ambition, discipline, strategic thinking, resilience and the ability to take responsibility.",
+
+      tensions: "You may find it easier to demonstrate strength than to ask for help. Being capable all the time can become its own kind of pressure."
+
+    },
+
+    Stuart: {
+
+      name: "The Resilient Outsider",
+
+      description: "You may know what it feels like to stand slightly outside the group, observing rather than assuming you belong. That experience can give you perspective, humour and an unusual understanding of other people's insecurities. You still want connection, even if you do not always expect it.",
+
+      strengths: "Perspective, endurance, self-awareness, understated humour and an ability to keep going.",
+
+      tensions: "You may lower your expectations to protect yourself from disappointment. Resignation can feel safer than hope, but it can also keep people at a distance."
+
+    }
+
+  };
+
+  // Each answer contributes to two character profiles.
+
+  // The first receives 2 points; the second receives 1.
+
+  const Q = [
+
+    ["OUTLOOK", "When you think about the future, what feels most natural?", [
+
+      "I prefer to plan ahead. Knowing what to expect makes me feel secure.",
+
+      "I am hopeful, but I try to stay realistic about what might happen.",
+
+      "Uncertainty is uncomfortable. I would rather know where I stand.",
+
+      "I often imagine different futures and possibilities."
+
+    ], ["Sheldon, Bernadette", "Penny, Leonard", "Sheldon, Stuart", "Amy, Raj"]],
+
+    ["OUTLOOK", "Which statement comes closest to your view of human nature?", [
+
+      "Most people make sense when you understand how they think.",
+
+      "People are complicated, and their feelings often explain more than their words.",
+
+      "People tend to look after their own interests, whether they admit it or not.",
+
+      "Even when people disappoint me, I believe there is usually kindness in them."
+
+    ], ["Sheldon, Amy", "Leonard, Amy", "Bernadette, Howard", "Penny, Raj"]],
+
+    ["OUTLOOK", "When something challenges a belief you have held for years, what do you do?", [
+
+      "I examine the evidence, even if it means changing my mind.",
+
+      "I defend my position first, then think about it afterwards.",
+
+      "I consider whether changing my view would actually make a difference.",
+
+      "It can unsettle me more than I would like to admit."
+
+    ], ["Sheldon, Amy", "Howard, Bernadette", "Penny, Stuart", "Leonard, Raj"]],
+
+    ["OUTLOOK", "Which possibility is hardest for you to accept?", [
+
+      "That I might never fulfil what I am capable of.",
+
+      "That some questions will never have answers.",
+
+      "That people may never truly understand one another.",
+
+      "That life can be shaped by circumstances beyond anyone's control."
+
+    ], ["Bernadette, Sheldon", "Amy, Raj", "Leonard, Stuart", "Penny, Stuart"]],
+
+    ["OUTLOOK", "When someone you respect sees the world very differently from you, what is your instinct?", [
+
+      "I want to understand their reasoning and challenge it.",
+
+      "I try to understand the experiences and feelings behind their view.",
+
+      "I can become frustrated when their thinking seems irrational.",
+
+      "I accept that two people can reach different conclusions."
+
+    ], ["Sheldon, Amy", "Leonard, Raj", "Bernadette, Howard", "Penny, Stuart"]],
+
+    ["OUTLOOK", "If you could change one thing about the way you experience life, what would it be?", [
+
+      "I would worry less about getting things wrong.",
+
+      "I would feel more certain about who I am and where I am going.",
+
+      "I would find it easier to let people get close.",
+
+      "I would spend less time questioning whether my life is on the right path."
+
+    ], ["Penny, Stuart", "Sheldon, Bernadette", "Leonard, Raj", "Amy, Howard"]],
+
+    ["CHILDHOOD", "Growing up, when did you feel most understood by your family?", [
+
+      "When I achieved something or did something well.",
+
+      "When practical things were taken care of and I was looked after.",
+
+      "When someone listened and made space for my feelings.",
+
+      "I often felt misunderstood, even when people were around."
+
+    ], ["Sheldon, Bernadette", "Penny, Howard", "Leonard, Amy", "Stuart, Raj"]],
+
+    ["CHILDHOOD", "When you made a mistake as a child, what response did you most often experience?", [
+
+      "I was encouraged to learn from it and try again.",
+
+      "I worried about disappointing someone.",
+
+      "I tended to retreat into myself and deal with it privately.",
+
+      "It could lead to criticism, tension or conflict."
+
+    ], ["Penny, Amy", "Leonard, Howard", "Stuart, Raj", "Sheldon, Bernadette"]],
+
+    ["CHILDHOOD", "Which role did you tend to occupy in your family?", [
+
+      "The responsible one who was expected to get things right.",
+
+      "The independent one who mostly did their own thing.",
+
+      "The one who tried to keep the peace.",
+
+      "The one who felt a little different from everyone else."
+
+    ], ["Bernadette, Sheldon", "Penny, Amy", "Leonard, Raj", "Stuart, Howard"]],
+
+    ["CHILDHOOD", "How was affection generally expressed in your home?", [
+
+      "Warmth and affection were openly expressed.",
+
+      "People showed love through practical help and doing things for one another.",
+
+      "Affection was there, but it could feel inconsistent.",
+
+      "Feelings were not often expressed directly."
+
+    ], ["Leonard, Penny", "Bernadette, Howard", "Raj, Stuart", "Sheldon, Amy"]],
+
+    ["CHILDHOOD", "Thinking about siblings, or childhood peers if you were an only child, which feels closest?", [
+
+      "There was a sense of closeness and companionship.",
+
+      "There was comparison, competition or a need to prove myself.",
+
+      "I often felt responsible for someone else.",
+
+      "There was distance, or a feeling that we lived in separate worlds."
+
+    ], ["Penny, Leonard", "Sheldon, Bernadette", "Howard, Amy", "Stuart, Raj"]],
+
+    ["CHILDHOOD", "Looking back, what did you most want from the adults who raised you?", [
+
+      "Recognition for who I was and what I could do.",
+
+      "Acceptance without feeling I had to earn it.",
+
+      "Reassurance that things would be all right.",
+
+      "The freedom to become my own person."
+
+    ], ["Howard, Bernadette", "Leonard, Raj", "Stuart, Amy", "Penny, Sheldon"]],
+
+    ["FEARS", "Which possibility unsettles you most?", [
+
+      "Discovering that I am not as capable as I thought.",
+
+      "Being rejected by someone whose opinion matters to me.",
+
+      "Losing control over something important.",
+
+      "Finding myself isolated, with nobody to turn to."
+
+    ], ["Bernadette, Howard", "Leonard, Raj", "Sheldon, Amy", "Stuart, Penny"]],
+
+    ["FEARS", "When someone criticises you, what tends to happen internally?", [
+
+      "I examine their argument and look for flaws in it.",
+
+      "I begin wondering whether they might be right about me.",
+
+      "It hurts, even if I do not show it.",
+
+      "I become defensive and want to regain control of the situation."
+
+    ], ["Sheldon, Amy", "Leonard, Stuart", "Raj, Penny", "Bernadette, Howard"]],
+
+    ["FEARS", "Which long-term outcome would be hardest to live with?", [
+
+      "Knowing I never reached my potential.",
+
+      "Feeling disconnected from the people around me.",
+
+      "Having little power over the direction of my own life.",
+
+      "Feeling that my life has no real meaning."
+
+    ], ["Bernadette, Sheldon", "Leonard, Raj", "Penny, Howard", "Amy, Stuart"]],
+
+    ["FEARS", "When an emotion becomes difficult to sit with, what do you tend to do?", [
+
+      "Analyse it until it feels more manageable.",
+
+      "Use humour, distraction or activity to move away from it.",
+
+      "Withdraw and process it alone.",
+
+      "Look for reassurance or a sign that everything is okay."
+
+    ], ["Sheldon, Amy", "Howard, Penny", "Stuart, Bernadette", "Leonard, Raj"]],
+
+    ["FEARS", "What is most likely to keep you awake at night?", [
+
+      "The possibility that I am not doing enough with my abilities.",
+
+      "The possibility that someone I love will leave.",
+
+      "Something happening that I cannot prevent or prepare for.",
+
+      "The feeling that I do not really belong anywhere."
+
+    ], ["Bernadette, Sheldon", "Leonard, Raj", "Sheldon, Stuart", "Stuart, Penny"]],
+
+    ["FEARS", "Which admission would be hardest for you to make?", [
+
+      "Sometimes I feel inferior to other people.",
+
+      "I need other people more than I like to show.",
+
+      "I am more frightened and uncertain than I appear.",
+
+      "I sometimes feel envy or resentment towards people close to me."
+
+    ], ["Howard, Leonard", "Raj, Leonard", "Amy, Stuart", "Bernadette, Penny"]],
+
+    ["DRIVE", "If one of these things were guaranteed in your life, which would you choose?", [
+
+      "Becoming exceptional at something that matters to me.",
+
+      "Being deeply loved and understood.",
+
+      "Having the freedom and security to live life on my own terms.",
+
+      "Being recognised and appreciated for what I contribute."
+
+    ], ["Sheldon, Bernadette", "Leonard, Raj", "Penny, Amy", "Howard, Stuart"]],
+
+    ["DRIVE", "Which kind of accomplishment gives you the deepest satisfaction?", [
+
+      "Mastering something difficult that few people can do.",
+
+      "Receiving recognition for work I have put into something.",
+
+      "Realising that I have grown beyond who I used to be.",
+
+      "Sharing a meaningful achievement with people I care about."
+
+    ], ["Sheldon, Amy", "Howard, Bernadette", "Penny, Stuart", "Leonard, Raj"]],
+
+    ["DRIVE", "What might make you abandon an important ambition?", [
+
+      "Realising that pursuing it is damaging an important relationship.",
+
+      "Feeling that I may never be good enough to achieve it.",
+
+      "Discovering that the goal no longer means anything to me.",
+
+      "Knowing that pursuing it would make my life too unstable."
+
+    ], ["Leonard, Raj", "Howard, Sheldon", "Amy, Penny", "Bernadette, Stuart"]],
+
+    ["DRIVE", "Which statement best describes your relationship with success?", [
+
+      "It proves something important to myself.",
+
+      "It feels incomplete if I have nobody to share it with.",
+
+      "It gives me independence and a sense of security.",
+
+      "Even when I succeed, I quickly start thinking about what comes next."
+
+    ], ["Sheldon, Bernadette", "Leonard, Raj", "Penny, Stuart", "Howard, Amy"]],
+
+    ["DRIVE", "If you could no longer pursue your greatest talent, what would you miss most?", [
+
+      "The intellectual stimulation and challenge.",
+
+      "The sense of identity and purpose it gives me.",
+
+      "The recognition and appreciation that come with it.",
+
+      "The feeling of making progress and becoming better."
+
+    ], ["Sheldon, Amy", "Leonard, Stuart", "Howard, Bernadette", "Penny, Raj"]],
+
+    ["DRIVE", "Which sacrifice would you find hardest to make?", [
+
+      "Giving up my independence.",
+
+      "Losing an important relationship.",
+
+      "Walking away from an ambition I have worked towards.",
+
+      "Giving up the stability I have built."
+
+    ], ["Penny, Amy", "Leonard, Raj", "Bernadette, Sheldon", "Stuart, Howard"]],
+
+    ["FRIENDSHIP", "In a group of friends, what role do you naturally fall into?", [
+
+      "The person who offers advice or a rational perspective.",
+
+      "The person who connects people and looks after them.",
+
+      "The person who brings humour and keeps things lively.",
+
+      "The quieter person who sometimes feels outside the group."
+
+    ], ["Sheldon, Amy", "Leonard, Bernadette", "Howard, Penny", "Stuart, Raj"]],
+
+    ["FRIENDSHIP", "When a friend disappoints you, what is your usual response?", [
+
+      "I try to understand why they acted that way.",
+
+      "I feel hurt but may not say how much.",
+
+      "I create distance and reconsider how much I trust them.",
+
+      "I would rather talk it through and repair the friendship."
+
+    ], ["Amy, Sheldon", "Leonard, Raj", "Stuart, Bernadette", "Penny, Howard"]],
+
+    ["FRIENDSHIP", "What makes you feel most secure in a friendship?", [
+
+      "Being able to share ideas and understand one another intellectually.",
+
+      "Knowing the person will be consistent and dependable.",
+
+      "Feeling accepted without having to pretend.",
+
+      "Being included and knowing I have a place."
+
+    ], ["Sheldon, Amy", "Bernadette, Leonard", "Penny, Raj", "Stuart, Howard"]],
+
+    ["FRIENDSHIP", "Which situation makes you most uncomfortable?", [
+
+      "Being left out of something important.",
+
+      "Feeling emotionally dependent on someone.",
+
+      "Being expected to reveal feelings before I am ready.",
+
+      "Feeling that I am competing with a friend."
+
+    ], ["Raj, Stuart", "Penny, Sheldon", "Amy, Leonard", "Howard, Bernadette"]],
+
+    ["FRIENDSHIP", "When disagreements arise between friends, what do you tend to do?", [
+
+      "Address the issue directly and try to resolve it logically.",
+
+      "Try to preserve harmony, even if I have to compromise.",
+
+      "Use humour to ease the tension, then discuss it.",
+
+      "Avoid confrontation and hope the tension passes."
+
+    ], ["Sheldon, Bernadette", "Leonard, Penny", "Howard, Raj", "Stuart, Amy"]],
+
+    ["FRIENDSHIP", "What do you most wish your friends understood about you?", [
+
+      "I care, even when I do not express it in conventional ways.",
+
+      "I am more sensitive than I sometimes appear.",
+
+      "I need to feel appreciated, not just useful.",
+
+      "I sometimes struggle to feel that I truly belong."
+
+    ], ["Sheldon, Amy", "Raj, Leonard", "Bernadette, Howard", "Stuart, Penny"]],
+
+    ["ROMANCE", "When you begin developing feelings for someone, what happens?", [
+
+      "I analyse compatibility and wonder whether it could work.",
+
+      "I become emotionally invested and imagine what might be possible.",
+
+      "I try to maintain my independence and not rush things.",
+
+      "I become self-conscious and wonder how I am coming across."
+
+    ], ["Sheldon, Amy", "Raj, Leonard", "Penny, Bernadette", "Howard, Stuart"]],
+
+    ["ROMANCE", "What is most difficult for you about emotional intimacy?", [
+
+      "Showing someone the parts of myself I dislike.",
+
+      "Trusting that someone will not change how they feel about me.",
+
+      "Allowing another person to influence my independence.",
+
+      "Expressing what I need without feeling exposed."
+
+    ], ["Amy, Sheldon", "Leonard, Raj", "Penny, Bernadette", "Howard, Stuart"]],
+
+    ["ROMANCE", "If a partner becomes less communicative than usual, what is your instinct?", [
+
+      "Ask directly whether something has changed.",
+
+      "Replay recent conversations and wonder what I did wrong.",
+
+      "Give them space and wait for them to come to me.",
+
+      "Feel unsettled but act as though everything is normal."
+
+    ], ["Bernadette, Sheldon", "Leonard, Raj", "Penny, Amy", "Stuart, Howard"]],
+
+    ["ROMANCE", "What kind of reassurance means the most to you?", [
+
+      "Hearing someone clearly say that they love me.",
+
+      "Seeing consistent actions that demonstrate commitment.",
+
+      "Feeling that someone understands my mind and emotions.",
+
+      "Knowing I can be myself without judgement or restriction."
+
+    ], ["Raj, Leonard", "Bernadette, Stuart", "Amy, Sheldon", "Penny, Howard"]],
+
+    ["ROMANCE", "When a relationship becomes difficult, what do you struggle with most?", [
+
+      "Relying on another person instead of handling things myself.",
+
+      "Compromising on principles, habits or routines that matter to me.",
+
+      "Communicating vulnerability before frustration takes over.",
+
+      "Feeling that the other person does not recognise or affirm my efforts."
+
+    ], ["Penny, Bernadette", "Sheldon, Amy", "Leonard, Raj", "Howard, Stuart"]],
+
+    ["ROMANCE", "Which description comes closest to what you ultimately want from love?", [
+
+      "To have my mind understood and my whole self accepted.",
+
+      "To feel chosen, secure and at home with someone.",
+
+      "To share life with someone while remaining two independent people.",
+
+      "To feel seen, appreciated and less alone."
+
+    ], ["Amy, Sheldon", "Leonard, Raj", "Penny, Bernadette", "Howard, Stuart"]]
+
+  ];
+
+  const dimensions = [
+
+    "OUTLOOK", "CHILDHOOD", "FEARS",
+
+    "DRIVE", "FRIENDSHIP", "ROMANCE"
+
+  ];
+
+  const intro = document.querySelector(".test-intro");
+
+  const shell = document.getElementById("testShell");
+
+  const result = document.getElementById("testResult");
+
+  const resultContent = document.getElementById("resultContent");
+
+  const begin = document.getElementById("beginTest");
+
+  const next = document.getElementById("nextButton");
+
+  const back = document.getElementById("backButton");
+
+  const skip = document.getElementById("skipButton");
+
+  const retake = document.getElementById("retakeTest");
+
+  if (!intro || !shell || !result || !begin) return;
+
+  let current = 0;
+
+  let answers = Array(Q.length).fill(null);
+
+  function start() {
+
+    current = 0;
+
+    answers = Array(Q.length).fill(null);
+
+    intro.hidden = true;
+
+    result.hidden = true;
+
+    shell.hidden = false;
+
+    renderQuestion();
+
+  }
+
+  function renderQuestion() {
+
+    const q = Q[current];
+
+    const chosen = answers[current];
+
+    document.getElementById("dimensionName").textContent = q[0];
+
+    document.getElementById("questionCount").textContent =
+
+      `QUESTION ${current + 1} OF ${Q.length}`;
+
+    document.getElementById("progressBar").style.width =
+
+      `${((current + 1) / Q.length) * 100}%`;
+
+    document.getElementById("questionTitle").textContent = q[1];
+
+    const list = document.getElementById("answerList");
+
+    list.innerHTML = "";
+
+    q[2].forEach((answer, index) => {
+
+      const button = document.createElement("button");
+
+      button.type = "button";
+
+      button.className = "test-answer";
+
+      button.textContent = answer;
+
+      button.setAttribute("aria-pressed", String(chosen === index));
+
+      if (chosen === index) button.classList.add("selected");
+
+      button.addEventListener("click", () => {
+
+        answers[current] = index;
+
+        renderQuestion();
+
+      });
+
+      list.appendChild(button);
+
+    });
+
+    back.disabled = current === 0;
+
+    next.disabled = chosen === null;
+
+    next.textContent = current === Q.length - 1 ? "SEE MY RESULTS" : "NEXT";
+
+  }
+
+  function advance() {
+
+    if (current < Q.length - 1) {
+
+      current++;
+
+      renderQuestion();
+
+    } else {
+
+      showResults();
+
+    }
+
+  }
+
+  function showResults() {
+
+    const scores = {};
+
+    Object.keys(characters).forEach(name => scores[name] = 0);
+
+    const dimensionScores = {};
+
+    dimensions.forEach(d => {
+
+      dimensionScores[d] = {};
+
+      Object.keys(characters).forEach(name => {
+
+        dimensionScores[d][name] = 0;
+
+      });
+
+    });
+
+    let answered = 0;
+
+    Q.forEach((q, index) => {
+
+      const choice = answers[index];
+
+      if (choice === null) return;
+
+      answered++;
+
+      const [first, second] = q[3][choice].split(",");
+
+      scores[first] += 2;
+
+      scores[second] += 1;
+
+      dimensionScores[q[0]][first] += 2;
+
+      dimensionScores[q[0]][second] += 1;
+
+    });
+
+    if (answered < 6) {
+
+      alert("Please answer at least six questions to receive a meaningful result. You can go back and answer more.");
+
+      return;
+
+    }
+
+    const ranking = Object.keys(scores).sort((a, b) =>
+
+      scores[b] - scores[a] || a.localeCompare(b)
+
+    );
+
+    const primary = ranking[0];
+
+    const secondary = ranking[1];
+
+    const dimensionHTML = dimensions.map(d => {
+
+      const sorted = Object.keys(dimensionScores[d]).sort((a, b) =>
+
+        dimensionScores[d][b] - dimensionScores[d][a]
+
+      );
+
+      const first = sorted[0];
+
+      const second = sorted[1];
+
+      return `
+
+        <div class="test-dimension">
+
+          <p class="eyebrow">${d}</p>
+
+          <h4>${first}</h4>
+
+          <p class="test-dimension-detail">
+
+            Secondary influence: ${second}
+
+          </p>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+    resultContent.innerHTML = `
+
+      <p class="eyebrow">YOUR BEEN THINKING PROFILE</p>
+
+      <h2>YOU ARE MOST LIKE...</h2>
+
+      <h3 class="test-primary-name">${primary}</h3>
+
+      <h4>${characters[primary].name}</h4>
+
+      <p class="test-result-description">${characters[primary].description}</p>
+
+      <div class="test-secondary-profile">
+
+        <p class="eyebrow">YOUR SECONDARY INFLUENCE</p>
+
+        <h3>${secondary}</h3>
+
+        <h4>${characters[secondary].name}</h4>
+
+        <p>${characters[secondary].description}</p>
+
+      </div>
+
+      <div class="test-profile-detail">
+
+        <h3>YOUR STRENGTHS</h3>
+
+        <p>${characters[primary].strengths}</p>
+
+        <h3>YOUR CONTRADICTIONS</h3>
+
+        <p>${characters[primary].tensions}</p>
+
+      </div>
+
+      <div class="test-dimensions">
+
+        <p class="eyebrow">SIX DIMENSIONS OF YOU</p>
+
+        ${dimensionHTML}
+
+      </div>
+
+      <p class="test-note">
+
+        Your result is an interpretation of the answers you gave,
+
+        not a fixed definition of who you are. The characters are
+
+        fictional comparisons, and the scoring is not a validated
+
+        psychological measurement.
+
+      </p>
+
+      <p class="test-note">
+
+        You answered ${answered} of ${Q.length} questions.
+
+      </p>
+
+    `;
+
+    shell.hidden = true;
+
+    result.hidden = false;
+
+    result.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  }
+
+  begin.addEventListener("click", start);
+
+  next.addEventListener("click", () => {
+
+    if (answers[current] !== null) advance();
+
+  });
+
+  back.addEventListener("click", () => {
+
+    if (current > 0) {
+
+      current--;
+
+      renderQuestion();
+
+    }
+
+  });
+
+  skip.addEventListener("click", advance);
+
+  retake.addEventListener("click", start);
+
+})();
+
 </script>
 </body>
 </html>
